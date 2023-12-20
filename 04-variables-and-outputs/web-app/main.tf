@@ -44,26 +44,26 @@ resource "aws_instance" "instance_2" {
               EOF
 }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket_prefix = var.bucket_prefix
-  force_destroy = true
-}
+# resource "aws_s3_bucket" "bucket" {
+#   bucket_prefix = var.bucket_prefix
+#   force_destroy = true
+# }
 
-resource "aws_s3_bucket_versioning" "bucket_versioning" {
-  bucket = aws_s3_bucket.bucket.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
+# resource "aws_s3_bucket_versioning" "bucket_versioning" {
+#   bucket = aws_s3_bucket.bucket.id
+#   versioning_configuration {
+#     status = "Enabled"
+#   }
+# }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_crypto_conf" {
-  bucket = aws_s3_bucket.bucket.bucket
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
+# resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_crypto_conf" {
+#   bucket = aws_s3_bucket.bucket.bucket
+#   rule {
+#     apply_server_side_encryption_by_default {
+#       sse_algorithm = "AES256"
+#     }
+#   }
+# }
 
 data "aws_vpc" "default_vpc" {
   default = true
@@ -203,14 +203,14 @@ resource "aws_route53_record" "root" {
   }
 }
 
-resource "aws_db_instance" "db_instance" {
-  allocated_storage   = 20
-  storage_type        = "standard"
-  engine              = "postgres"
-  engine_version      = "12"
-  instance_class      = "db.t2.micro"
-  name                = var.db_name
-  username            = var.db_user
-  password            = var.db_pass
-  skip_final_snapshot = true
-}
+# resource "aws_db_instance" "db_instance" {
+#   allocated_storage   = 20
+#   storage_type        = "standard"
+#   engine              = "postgres"
+#   engine_version      = "12"
+#   instance_class      = "db.t2.micro"
+#   name                = var.db_name
+#   username            = var.db_user
+#   password            = var.db_pass
+#   skip_final_snapshot = true
+# }
