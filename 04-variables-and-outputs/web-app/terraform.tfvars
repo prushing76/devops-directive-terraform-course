@@ -1,4 +1,4 @@
-bucket_prefix = "devops-directive-web-app-data"
+bucket_prefix = "devops-directive-web-app-data-0057-3539-4109"
 domain        = "devopsdeployed.com"
 db_name       = "mydb"
 db_user       = "foo"
